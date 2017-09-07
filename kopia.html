@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Kryptografia</title>
+<style>
+body{
+padding:0;
+
+border:0;
+font-family: Verdana;
+text-align:justify;
+}
+#nav{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:120px;
+background-image: url("header.png");
+}
+#menu{
+position:fixed;
+top:125px;
+left:0;
+width:10%;
+height:70%;
+
+}
+
+#lista{
+list-style-type:none;
+color: rgb(96,96,96);
+width:100%;
+margin-left:0;
+
+}
+#lista li{
+ color:rgb(96,96,96);
+border-bottom: 2px solid rgb(96,96,96);
+line-height:2.5em;
+padding:0;
+cursor:hand;
+}
+#lista li a {
+color:rgb(96,96,96);
+text-decoration:none;
+}
+
+#main{
+position:absolute;
+top:120px;
+left:15%;
+width:85%;
+height:80%;
+
+}
+#intro,#present{
+margin-right:5%;
+}
+img{
+width:25%;
+height:25%;
+margin-left:30%;
+}
+
+table{
+align:center;
+}
+footer{
+margin-left:5%;
+}
+</style>
+</head>
+<body>
+<div id="nav"> 
+</div>
+<div id="menu">
+<ul id="lista">
+<li><a href="#nr1">Autorzy</a></li>
+<li><a href="#nr2">Geneza</a></li>
+<li><a href="#nr3">Współczesność</a></li>
+<li><a href="#nr4">RSA</a></li>
+<li><a href="#nr5">Przypisy</a></li>
+<li><a href="#nr6">Bibliografia</a></li>
+
+</ul>
+
+</div>
+<div id="main">
+<div id="intro">
+<h2 style="text-align:center">Podstawy kryptografii i szyfrowania</h2>
+</br>
+<p>
+Kryptografia(gr.kryptos-ukryty i graphein-pisać) to dziedzina nauki poświęcona sposobowi utajniania znaczenia wiadomości za pomocą działań matematycznych, 
+natomiast jej celem nie jest ukrycie samych wiadomości.
+Jest, obok kryptoanalizy, która zajmuje się łamaniem szyfrów częścią Kryptologii.</p>
+<p> Kryptografia, jak i kryptoanaliza odgrywają dzisiaj dużą rolę w zapewnieniu bezpieczeństwa,szczególnie w sieci. Pierwsza ma szczególne znaczenie w
+ zabezpieczaniu połączenia z serwerem, natomiast druga jest wykorzystywana przez instytucje
+rządowe w walce np.z terroryzmem </p>
+
+<p ><h2 id="nr2" style="text-indent:2em">Geneza kryptografii</h2></p>
+
+<p  style="text-indent:2em">Początki kryptografii sięgają czasów starożytnych. W II w. p.n.e. grecki historyk,Polibiusz stworzył własny system szyfrowania, zaliczany do systemów
+ przekształceniowych, 
+w którym każdej literze przyporządkowano liczbę. Przykładowo "To jest tajna informacja" zostałoby zakodowane jako 4434 24154344 4411243311 24332134423211132411.
+</p>
+<table align="center" width="15%" >
+ <caption><small>Tablica Polibiusza</small></caption>
+ <tr>
+ </tr>
+ <td></td>
+ <td>1</td>
+ <td>2</td>
+ <td>3</td>
+ <td>4</td>
+ <td>5</td>
+  <tr>
+ <td>1</td> 
+ <td>A</td>
+ <td>B</td>
+ <td>C</td>
+ <td>D</td>
+ <td>E</td>
+ </tr>
+  <tr>
+  <td>2</td>
+  <td>F</td>
+  <td>G</td>
+  <td>H</td>
+  <td>I/J</td>
+  <td>K</td> 
+ </tr>
+  <tr>
+  <td>3</td>
+  <td>L</td>
+  <td>M</td>
+  <td>N</td>
+  <td>O</td>
+  <td>P</td>
+ </tr>
+  <tr>
+  <td>4</td>
+  <td>Q</td>
+  <td>R</td>
+  <td>S</td>
+  <td>T</td>
+  <td>U</td>
+ </tr>
+  <tr>
+  <td>5</td>
+  <td>V</td>
+  <td>W</td>
+  <td>X</td>
+  <td>Y</td>
+  <td>Z</td>
+ </tr>
+ </table>
+
+ </br>
+
+<p>
+Za najbardziej rozpoznawalny szyfr z tamtego okresu uchodzi zaliczany do szyfrów podstawianych szyfr Cezara.
+ Używany był do komunikacji z Cyceronem. Każda litera była zastępowana inną położoną o kilka miejsc dalej w alfabecie,
+a więc układ pozostawał niezmienny</p>
+<table align="center">
+<tr>
+<td>A</td>
+<td>B</td>
+<td>C</td>
+<td>D</td>
+<td>E</td>
+<td>F</td>
+<td>G</td>
+<td>H</td>
+<td>I</td>
+<td>J</td>
+<td>K</td>
+<td>L</td>
+<td>M</td>
+<td>N</td>
+<td>O</td>
+<td>P</td>
+<td>R</td>
+<td>S</td>
+<td>T</td>
+<td>U</td>
+<td>V</td>
+<td>W</td>
+<td>X</td>
+<td>Y</td>
+<td>Z</td>
+</tr>
+<tr>
+<td>&#8595;</td>
+<td>&#8595;</td>
+<td>&#8595;</td>
+<td>&#8595;</td>
+<td>&#8595;</td>
+<td>&#8595;</td>
+<td>&#8595;</td>
+<td>&#8595;</td>
+<td>&#8595;</td>
+<td>&#8595;</td>
+<td>&#8595;</td>
+<td>&#8595;</td>
+<td>&#8595;</td>
+<td>&#8595;</td>
+<td>&#8595;</td>
+<td>&#8595;</td>
+<td>&#8595;</td>
+<td>&#8595;</td>
+<td>&#8595;</td>
+<td>&#8595;</td>
+<td>&#8595;</td>
+<td>&#8595;</td>
+<td>&#8595;</td>
+<td>&#8595;</td>
+<td>&#8595;</td>
+</tr>
+<tr>
+<td>D</td>
+<td>E</td>
+<td>F</td>
+<td>G</td>
+<td>H</td>
+<td>I</td>
+<td>J</td>
+<td>K</td>
+<td>L</td>
+<td>M</td>
+<td>N</td>
+<td>O</td>
+<td>P</td>
+<td>R</td>
+<td>S</td>
+<td>T</td>
+<td>U</td>
+<td>V</td>
+<td>W</td>
+<td>X</td>
+<td>Y</td>
+<td>Z</td>
+<td>A</td>
+<td>B</td>
+<td>C</td>
+</tr>
+</table>
+</br>
+
+<p>
+Adresat musiał posiadać klucz do odszyfrowania wiadomości. Jednak wystarczyło przechwycić klucz, by stała się ona bezużyteczna.
+ Dlatego w celu zapewnienia bezpieczeństwa należało go zmieniać.
+</p>
+<table align="center">
+<tr>
+<td>H</td>
+<td>E</td>
+<td>L</td>
+<td>L</td>
+<td>O</td>
+<td>&nbsp;</td>
+<td>W</td>
+<td>O</td>
+<td>R</td>
+<td>L</td>
+<td>D</td>
+</tr>
+<tr>
+<td>&#8595;</td>
+<td>&#8595;</td>
+<td>&#8595;</td>
+<td>&#8595;</td>
+<td>&#8595;</td>
+<td>&nbsp;</td>
+<td>&#8595;</td>
+<td>&#8595;</td>
+<td>&#8595;</td>
+<td>&#8595;</td>
+<td>&#8595;</td>
+</tr>
+<tr>
+<td>K</td>
+<td>H</td>
+<td>O</td>
+<td>O</td>
+<td>S</td>
+<td>&nbsp;</td>
+<td>Z</td>
+<td>S</td>
+<td>U</td>
+<td>L</td>
+<td>G</td>
+</tr>
+</table>
+
+<p>
+Wspominając o historii kryptografii nie należy pominąć arabskiego badacza Al-Kindiego. Słabość szyfrów monoalfabetycznych zrodziła potrzebę opracowania
+bardziej złożonych szyfrów. Wymyślił on metodę, która podważyła wcześniej stosowane systemy monoalfabetyczne. Jego koncepcja opierała się na rachunku 
+prawdopodobieństwa. Należało porównać częstotliwość występowania liter w tekście zaszyfrowanym i
+ dowolnym tekście jawnym. Następnie zamienić najczęściej występująca w tekście jawnym z tą w teście zaszyfrowanym i tak dalej według kolejności, np.
+ jeżeli w tekście jawnym
+ najczęściej pojawiało się C, a w wiadomości D, to należało w miejsce drugiej wpisać pierwszą<sup style="font-weight:bold">1</sup>.
+</p>
+<p>
+W XVw. wieku wprowadzono szyfry polialfabetyczne. Za ich prekursora uważa się włoskiego architekta Albertiego<sup style="font-weight:bold">2</sup>.Wymyślił on swój własny szyfr,który
+jak twierdził miał być nie do złamania. Proces szyfrowania polegał na zastępowaniu liter z małej tarczy,obracając ją odpowiednio literami z dużej tarczy.
+</p>
+<img src="http://images.tinypic.pl/i/00736/a6dygy5e6qlf.jpg" alt="tarcza Albertiego" align="center"></img>
+<p style="margin-left:30%;text-align:justify"><small>Źródło:http://wachmistrz.blog.onet.pl/2007/06/11/</br>stowarzyszenie-zapomnianych-wynalazcow-xix/</br> 
+z dn.16.12.15</small></p>
+<p>Inną metodę szyfrowania zaimplementował francuski dyplomata Vigener. Stworzył szyfr w oparciu o tablicę Trithemiusa tzw."tabula recta". Tabula recta
+to tablica tablic, skłądająca się z 26 tablic podobnych do tych jakie wykorzystywał Juliusz Cezar. Każdy wiersz rozpoczyna się literą alfabetu przesuniętą o 1
+w prawo, a więc pierwszy zaczyna się od A, drugi od B.W celu zaszyfrowania wiadomości należy posiadać klucz, a jeżeli jest zbyt krótki trzeba go podstawić
+ kolejny raz, aż
+zrówna się długością liter z treścią komunikatu. Podstawia się pierwszą literę tekstu jawnego do do odpowiedniej kolumny pierwszego wiersza i pierwszą 
+literę klucza do odpowiadającemu mu wiersza pierwszej kolumny. Tym sposobem otrzymujemy pierwszą literę tekstu zaszyfrowanego.
+</p>
+<img src="http://images.tinypic.pl/i/00737/toyg8re600vv.png" alt="Tabula recta" align="center"/>
+<p style="margin-left:30%;text-align:justify" ><small>Źródło:http://pifflelab.com/category/</br>excel-word-vba/page/2/ z dn.16.12.15</small></p>
+<p>Vigener opracował bardzo skuteczny system, przez długi czas jego szyfr uchodził za niemożliwy do złamania. Dopiero w XVIIIw. udało się to Charlesowi
+ Babbagowi.</p>
+ <p>Największy ślad w historii kryptografii i kryptoanalizy odcisneła maszyna szyfrująca Enigma.Wyglądem przypominała maszyne do pisania, ale była wyposażona
+ w obwód elektryczny i 5 wirników, które były kluczowe dla procesu szyfrowania. Co ważne każdy mógł być ustawiony w 26 różnych pozycjach,
+ odpowiadającym liczbie liter w alfabecie. Na początku II wojny św.zwiększono liczbę wirników do 8, co dawało aż 26<sup>8</sup> możliwych kombinacji. </p>
+<p>
+Wstukiwanie każdej litery powodowało przesunięcie wirnika o 1 pozycję, natomiast pełny obrót przesuwał kolejny wirnik o 1 pozycję,
+po obrocie drugim przesuwał się trzeci o 1 pozycję<sup style="font-weight:bold" >3</sup>.Samo kodowanie 
+odbywało się elektronicznie. Naciśnięcie klawisza z literą tekstu jawnego skutkowało zapaleniem się lampki przycisku tekstu tajnego, co ilustruje obrazek.
+</p>
+ <p>
+ Przepływ prądu w obwodzie podczas naciśnięcia A i otrzymaniu D</p>
+<img src="http://images.tinypic.pl/i/00737/c0abwjhqakvc.png" alt="schemat" />
+<p style="margin-left:30%"><small>Źródło:https://pl.wikipedia.org/wiki/Enigma</br> z dn.16.12.15</small></p>
+ <p>
+Enigma wykorszystywała algorytm asymetryczny, a więc informacja rozkodowana była przesyłana tą samą drogą.
+Co istotne żadna litera przed zaszyfrowaniem nie mogła być równa zaszyfrowanej np. A w A. Dzięki wykorzystaniu teorii Permutacji można zapisać 
+szyfrowani za pomocą matematycznego wzoru<sup style="font-weight:bold" >4<sup>.
+</p>
+<p>A<sub>n</sub>=N<sup>-1</sup>H<sup>-1</sup>p<sup>-n</sup>N<sup>-1</sup>QP<sup>-1</sup>Np<sup>n</sup>HS</p>
+<p>n=1,2,3..</p>
+<p>
+,gdzie Q=M<sup>-1</sup>L<sup>-1</sup>RLM, a P=(123..) była permutacją spowodowaną obrotem danego wirnika
+</p>
+</div>
+<div id="present">
+<p ><h2 id="nr3" style="text-indent:2em">Kryptografia obecnie</h2></p>
+<p style="text-indent:2em">
+W XIXw. holenderski kryptolog Kerckhoff sformułował 6 zasad jakimi powinien cechować się dobry system kryptofraficzny<sup style="font-weight:bold">5</sup>:
+</p>
+<ul>
+<li>Powinien być nie do złamania.</li>
+<li>W przypadku przedostania się do osób niepowołanych nie powinno to wpłynąć na bezpieczeństwo osób wykorzystujących go.</li>
+<li>Klucz powinien być łatwy do przekazania, zapamiętania i zmiany.</li>
+<li>Tekst zaszyfrowany powinien być przesyłany telegraficznie, kanałem niezabezpieczonym.</li>
+<li>Wykorzystywane dokumenty powinny być łatwe do przemieszczenia, a szyfrowanie powinno być możliwe z dowolnego miejsca.</li>
+<li>System powinien być oparty na prostych zasadach.</li>
+</ul>
+<p>Są to fundamentalne zasady, które powinny być przestrzegane we współczesnych systemach, bowiem wykorzystywanie tajnych metod nie jest już możliwe.</p>
+<p>Współcześnie stosowane szyfry posługują się kluczem do zaszyfrowania i odszyfrowania wiadomości. Wykorzystują algorytmy symetryczne i asymetryczne.
+ W symetrycznych klucz szyfrujący może być wyznaczony z klucza deszyfrującego  i odwrotnie, klucz deszyfrujący wyznaczony na podstawie klucza szyfrującego,
+natomiast w drugim typie algorytmów klucz szyfrujący, inaczej publiczny jest inny niż deszyfrujący(prywatny). Nie można, więc stosować zasad, jak w przypadków 
+algorytmów  symetrycznych.
+ </p>
+ <p>
+ Wykorzystywanie jednego klucza w kryptografii symetrycznej niesie ze sobą duże ryzyko i sprawia, że należy zwracać uwagę, czy spelnione są następujące warunki<sup>6</sup>:
+ </p>
+ <ul id="nonCSS">
+ <li>ustalenie klucza-zanim nastąpi proces komunikacji nadawca i odbiorca muszą zgodzić się na zastosowanie niejawnego klucza symetrycznego</li>
+ <li>zaufanie-musi zaistnieć między nadawcą i odbiorcą, ponieważ obie strony używają tego samego klucza. W przypadku przechwycenia klucza od nadawcy,
+ należy poinformować odbiorcę o tym fakcie </li>
+ </ul>
+<p>Postęp technologiczny sprawił,że metody kryptograficzne także musiały się zmienić. Kryptografia klasyczna i współczesna różnią się w kilku zasadniczych
+kwestiach. Po pierwsze dawniej do szyfrowania wykorzystywano litery i liczby, a obecnie są to bity. Po drugie, kiedyś bezpieczeństwo zależało od
+dochowania tajemnicy o stosowanych metodach, tylko zainteresowane strony mogły mieć dostęp do informacji o sposobie szyfrowania. Dziś systuacja wygląda inaczej
+,algorytmy powinny być publiczne. Gwarantem bezpieczeństwa jest klucz prywatny. I wreszcie skuteczność kryptografii nie musi zależeć od sekretnej komunikacji,
+ ale od długości klucza wyrażonego w bitach. W związku z tym opracowano DES(Data Encryption Standard). DES to standard szyfrowania opracowany
+przez IBM, który pojawił się w latach
+ 70 XXw.  
+</p>DES jeko dane wejściowe przyjmował 64 bitowe bloki danych, natomiast klucz miał się składać z 128 bitów, dzięki czemu byłby wyjątkowo odporny na ataki,
+zwłaszcza za pomocą metody pełnego przeglądu(wykorzystywanie mocy obliczeniowej komputera do wypróbowania kolejnych kluczy wszystkich możliwych kombinacji).
+Niestety pod wpływem NSA(Narodowa Agencja Bezpieczeństwa) skrócono go do zaledwie 56 bitów. Schemat szyfrowania jest następujący<sup style="font-weight:bold">6</sup>:
+algorytm dzieli wiadomość na 64 bitowe bloki, a następnie wykorzystuje się permutacje do przestawiania bitów. Blok wejściowy dzielony jest
+2 razy po 32 bity. Caly proces trwa 16 cykli i może odbywać się w 4 trybach. Odszyfrowywanie odbywa się tym samym sposobem, ale w odwrotnej kolejności.
+Znalezienie poprawnego klucza zajmuje maksmymalne 2<sup>56</sup> kombinacji. Moc obliczeniowa komputerów rosła dynamicznie, dlatego DES stawał się 
+coraz mniej bezpieczny i instytucje rządowe USA go porzuciły na rzecz AES. AES ma klucz o długości 128 bitów, co daje aż 3x10<sup>12</sup>możliwych 
+kombinacji czyniąc, go trudną do przejścia zaporą<sup style="font-weight:bold" >7</sup>
+ </p>
+ <p>
+ Mogłoby się wydawać,że czas DES dobiegnie końca, ale jest wciąż wykorzystywany w działalności komercyjnej ze względu na jego atuty. Jego mocnymi stronami są: 
+ </p>
+ <ul>
+ <li>Zaleca się regularną zmiane klucza. </li>
+ <li>Szybszy proces szyfrowania.</li>
+ <li>Żużywa mniej zasobów sprzętowych.</li>
+ <li><li>
+ </ul>
+ <p>Chociaż współcześnie stosuje się zaawansowane algorytmy szyfrujące np.kodowania plików lub zapiezpieczenia połączenia internetowego z serwerem, do 
+ niektórych zadań wystarczą prostsze szyfry. ROT13 jest odpowiednikiem wcześniej wspomnianego szyfru Cezara, czyli wykorzystującego podstawianie. Wiadomość 
+ zaszyfrowaną otrzymuje się poprzez przesunięcie tekstu jawnego o 13 pozycji.Jest przydatny m.in. do szyfrowania niektórych emaili, czy na forach internetowych</p>
+
+
+<p><h3 id="nr4" style="text-indent:2em">Szyfrowanie RSA</h3></p>
+<p style="text-indent:2em">Algorytm RSA (skrót pochodzący od pierwszych liter nazwisk twórców: Rivest, Szamir, Adleman) jest obecnie jednym z
+ najpopularniejszych asymetrycznych
+ algorytmów szyfrujących. Został on opublikowany w roku 1977. Zgodnie z zasadami kryptografii trudność w jego złamaniu nie stanowi ukryta procedura
+ szyfrowania (wszystkie kroki algorytmu są publicznie znane), a sam sposób szyfrowania informacji.</p>
+ <p><h3>Matematyczne podstawy RSA</h3></p>
+ <p>
+ Podstawową koncepcją, którą należy wprowadzić, gdy mowa o szyfrach asymetrycznych, jest koncepcja funkcji oraz funkcji odwrotnej. 
+ Funkcja jest takim przekształceniem liczb, że dla każdego argumentu (liczby na wejściu) przyporządkowuje stałą wartość (liczba na wyjściu).
+ Funkcja odwrotna działa względem pierwotnej funkcji "w drugą stronę", czyli dla wartościom z funkcji pierwotnej przyporządkowuje ich argumenty.
+ Zazwyczaj znając wzór funkcji pierwotnej można bardzo łatwo wyznaczyć wzór funkcji odwrotnej. Istnieją jednak takie funkcje dla których znalezienie
+ odwrotności funkcji okazuje się trudne (choć nadal z matematycznego punktu widzenia możliwe, tyle że, w nieskończenie długim czasie...). 
+Operacje modulo (np. a = b (mod c) ) są podobne do zwykłych operacji arytmetycznych, tyle że w każdym momencie od stron można odejmować liczbę 
+c (działa to podobnie jak operator dzielenia modulo w komputerze "%").
+Przykład: 20 = 8 (mod 12). 
+ </p>
+ <p><h3 >Funkcja działająca w RSA</h3></p>
+ <p>Podstawową dla RSA równością, która opiera się na twierdzeniu Eulera jest:</p>
+ <p>T&#94;(S + 1) = T (mod R)	gdzie:</p>
+ <p>T to liczba naturalna, R to iloczyn liczb pierwszych, T i R są względnie pierwsze oraz T&lt;R</p>
+ <p>S to liczba podzielna przez phi(R)1 (w RSA liczba R to iloczyn liczb pierwszych, więc dla liczb pierwszych A i B zachodzi równość 
+phi(R)  =  (A-1) &#42; (B-1) ).</p>
+ <p>Mamy więc przykład funkcji która w zasadzie nie robi z naszą liczbą nic ciekawego, jakiekolwiek T podstawimy jako wynik działania tej funkcji dostaniemy to samo T.
+Możemy jednak rozbić naszą funkcję na 2 etapy:</p>
+<p>P&#42;Q=S+1, więc</p>
+<p>T<sup>P&#42;Q</sup>T (mod R)</p>
+<p>co rozbijamy na etapy </p>
+<p>T<sup>P</sup>=X(mod R)</p>
+<p>X<sup>Q</sup>=T(mod R)</p>
+<p>Uzyskaliśmy w ten sposób pewną funkcję oraz funkcję do niej odwrotną. Okazuje się, że dzięki zastosowaniu dzielenia modulo, usuwane jest na tyle dużo informacji, 
+że przejście z funkcji do funkcji odwrotnej jest możliwe jedynie przez faktoryzację (rozkład na czynniki pierwsze) liczby R.</p>
+<p><h3>Po co komu takie funkcje?</h3></p>
+<p>Jak łatwo zauważyć do kodowania informacji są potrzebne trzy liczy: P,Q,R. Na potrzeby szyfrowania liczby P i R staną się kluczem publicznym, 
+a liczby Q,R staną się kluczem prywatnym. Dzięki temu, że praktycznie niemożliwe jest wyliczenie klucza prywatnego na podstawie klucza publicznego,
+ klucz publicznym może rzeczywiście zostać opublikowany. Umożliwia to szyfrowanie dowolnej wiadomości (w końcu to nie problem zamienić ciąg znaków na
+ liczbę albo zestaw liczb) przez dowolną osobę. Jedyną osobą, która może odkodować tak zaszyfrowaną wiadomość, jest posiadacz klucza prywatnego.
+ W ten sposób nikt nie musi "umawiać się" na wspólne, tajne hasło. 
+Operacja szyfrowania to po prostu: </p>
+<p>T<sup>P</sup>=X (mod R)</p>
+<p>gdzie T jest tekstem jawnym w postaci liczby, a X staje się szyfrogramem.Dekodowywanie przebiega analogicznie, tyle ze z użyciem drugiego klucza: </p>
+<p>X<sup>Q</sup>=T (mod R)</p>
+<p><h3>Czy można czuć się bezpiecznie?</h3></p>
+<p>Szyfrowanie RSA ma wiele zalet, jednak istnieją metody umożliwiające odczytanie klucza prywatnego z klucza publicznego. 
+Oto kilka możliwości, większość z nich opiera się na faktoryzacji liczby R, dzięki czemu uzyskujemy składowe liczby pierwsze, 
+a z nich można już w łatwy sposób przejść do klucza prywatnego:</p>
+<ol>
+<li> Wybrane liczby pierwsze były zbyt blisko siebie, co umożliwiło prostą faktoryzację.</li>
+<li>Wybrane liczby były zbyt małe (największa liczba R którą udało się jak dotąd sfaktoryzować miała 768 bitów)</li>
+<li>Dane były zamieniane na liczby (na liczbę T) w zły sposób:a) Prostym przykładem złego sposobu jest szyfrowanie tekstu litera po 
+literze. Jeśli każdej z liter przypiszemy jakąś liczbę (np A = 1, B=2 itd), to zawsze dana litera zostanie zamieniona na ten sam ciąg 
+cyfr w szyfrogramie. Znając częstotliwość występowania danych liter w języku można łatwo odczytać tak zaszyfrowaną wiadomość. </li>
+</ol>
+<p>
+</p><h3>Komputer kwantowy końcem RSA</h3></p>
+<p>Całe bezpieczeństwo RSA poleca na trudności z faktoryzacji dużych liczb. Najprostszy sposób faktoryzacji to próba dzielenia 
+liczby R przez wszystkie kolejne liczby aż do &radic;<span style="text-decoration:overline;">&nbsp;R&nbsp;</span>
+Dużo bardziej wydajnym algorytmem jest tzw. sito kwadratowe. Żaden znany klasyczny algorytm nie jest wystarczająco wydajny, 
+aby sprawna faktoryzacja dużych liczb była możliwa. Prawdziwym kamieniem milowym będzie dopiero zastosowanie algorytmów kwantowych. 
+Warte uwagi są dwa algorytmy, algorytm faktoryzacji Shora, który faktoryzuje liczby w czasie logarytmicznym (co prawda największa sfaktoryzowana 
+liczba to 15...), oraz algorytm AQC, którym udało się sfaktoryzować liczbę 143. Niestety oba te algorytmy są bardzo skomplikowane w zrozumieniu i 
+przytaczanie ich tutaj zdecydowanie nie mieści się w zakresie materiału tego eseju.
+</p>
+<p><h3>Podsumowanie</h3></p>
+<p>Algorytm RSA jest rzadkim przypadkiem wykorzystania twierdzeń z teorii liczb w życiu codziennym. Pozwala na (jak na razie)
+ bezpieczne szyfrowanie wiadomości bez wcześniejszego kontaktu z adresatem naszej zaszyfrowanej wiadomości.  Prosty  sposób tworzenia kluczy 
+ i szyfrowania wiadomości przyczynił się do tak dużej popularności tego algorytmu.</p>
+</div>
+</br>
+</br>
+<p id="nr1" align="center">Pracę przygotowali: Jacek Kowalski i Sebastian Kaczor</p>
+<p align="center">Praca wykonana w ramach zajęć z Narzędzi Informatyki,rok akad. 2015/16 </p>
+
+ <footer><small>
+
+<p id="nr5" style="font-weight:bold">Przypisy</p>
+<p><sup>1</sup>M.Karbowski,<em>Podstawy kryptografii</em>,Helion,Gliwice 2008,s.20.</p>
+<p><sup>2</sup>Ibidem,s.22. </p>
+<p><sup>3</sup>Ibidem,s.31.</p>
+<p><sup>4</sup>http://gamma.im.uj.edu.pl/~blocki/pmd/pm-wasik.pdf z dn.16.12.2015</p>
+<p><sup>5</sup>http://www.tutorialspoint.com/cryptography/modern_cryptography.htm z dn.20.12.2015</p>
+<p><sup>6</sup>http://searchsecurity.techtarget.com/definition/Data-Encryption-Standard z dn.21.12.2015</p>
+<p><sup>7</sup>http://computer.howstuffworks.com/encryption2.htm z dn.21.12.2015</p>
+</small>
+</br>
+</br>
+<p id="nr6" style="font-weight:bold">BIBLIOGRAFIA</p>
+<ol>
+<li>M.Karbowski,<em>Podstawy kryptografii</em>,Helion,Gliwice 2008</li>
+<li>http://gamma.im.uj.edu.pl/~blocki/pmd/pm-wasik.pdf</li>
+<li>http://www.tutorialspoint.com/cryptography/modern_cryptography.htm </li>
+<li>http://searchsecurity.techtarget.com/definition/Data-Encryption-Standard </li>
+<li>http://computer.howstuffworks.com/encryption2.htm </li>
+<li>http://wachmistrz.blog.onet.pl/2007/06/11/stowarzyszenie-zapomnianych-wynalazcow-xix/
+</li>
+<li>http://pifflelab.com/category/</br>excel-word-vba/page/2/</li>
+<li>https://pl.wikipedia.org/wiki/Enigma</li>
+<li>https://pl.wikipedia.org/wiki/RSA_(kryptografia)</li>
+<li>http://www.muppetlabs.com/~breadbox/txt/rsa.html</li>
+</ol>
+</footer>
+
+</div>
+</body>
+</html>
